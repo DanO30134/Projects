@@ -1,1 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Animated Apple-Style Website</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f7;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+        header {
+            background-color: #ffffff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1s ease-in-out;
+        }
+        nav {
+            margin: 20px 0;
+        }
+        nav a {
+            margin: 0 20px;
+            color: #0071e3;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #0056b3;
+        }
+        main {
+            padding: 40px 20px;
+            max-width: 960px;
+            margin: auto;
+        }
+        section {
+            margin-bottom: 60px;
+            padding: 40px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            opacity: 0; /* Start as invisible */
+            transform: translateY(20px); /* Start below */
+            animation: slideIn 0.5s forwards; /* Animation */
+        }
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #ffffff;
+            color: #666;
+            border-top: 1px solid #eaeaea;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            margin: 20px 0;
+            opacity: 0; /* Start as invisible */
+            animation: fadeIn 1s forwards; /* Fade-in animation */
+        }
+        .gallery img {
+            width: calc(33% - 20px);
+            margin: 10px;
+            transition: transform 0.3s;
+        }
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+        form {
+            margin-top: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        button {
+            background-color: #0071e3;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.2s;
+            animation: pulse 2s infinite; /* Add pulse animation */
+        }
+        button:hover {
+            background-color: #0056b3;
+            transform: scale(1.05); /* Scale effect on hover */
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Animated Apple-Style Website</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>Home</h2>
+            <p>Welcome to my sleek and modern website, inspired by Apple's design principles. Explore various interesting topics and resources!</p>
+        </section>
+        <section id="about">
+            <h2>About</h2>
+            <p>This section provides information about myself and my interests.</p>
+            <ul>
+                <li>Hobby: Photography</li>
+                <li>Favorite Food: Sushi</li>
+                <li>Favorite Book: "The Alchemist"</li>
+            </ul>
+        </section>
+        <section id="gallery">
+            <h2>Gallery</h2>
+            <p>Check out some of my favorite images:</p>
+            <div class="gallery">
+                <img src="https://via.placeholder.com/300.png?text=Image+1" alt="Placeholder Image 1">
+                <img src="https://via.placeholder.com/300.png?text=Image+2" alt="Placeholder Image 2">
+                <img src="https://via.placeholder.com/300.png?text=Image+3" alt="Placeholder Image 3">
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>You can reach me via email at example@example.com.</p>
+            <form>
+                <label for="name">Name:</label><br>
+                <input type="text" id="name" name="name" required><br>
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email" required><br>
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 My Animated Apple-Style Website</p>
+    </footer>
+    <script>
+        // Add a fade-in effect for images in the gallery
+        window.addEventListener('load', () => {
+            const images = document.querySelectorAll('.gallery img');
+            images.forEach((img, index) => {
+                img.style.animationDelay = `${index * 0.2}s`; // Delay for each image
+                img.classList.add('fade-in');
+            });
+        });
+    </script>
+</body>
+</html>
 
